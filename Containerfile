@@ -4,6 +4,7 @@ USER root
 ARG NETCDF_JAVA_COMMIT
 WORKDIR /work
 COPY scripts/build-patched-jars.sh /usr/local/bin/build-patched-jars.sh
+COPY tests/NcmlReferenceTest.java /work/tests/NcmlReferenceTest.java
 RUN chmod 0755 /usr/local/bin/build-patched-jars.sh && \
     /usr/local/bin/build-patched-jars.sh "${NETCDF_JAVA_COMMIT}" /work/out
 
