@@ -3,6 +3,12 @@
 This starter builds an OCI image from a pinned official THREDDS 5.8 image and
 patches both bundled netCDF-Java 5.9.1 jars.
 
+NcML documents read through cdms3 can reference datasets by absolute HTTP,
+HTTPS or DAP URLs. The image preserves those URLs instead of resolving them
+as object-store keys. Relative references still resolve within the bucket.
+The image build checks URL resolution and reads a NetCDF fixture over HTTP
+through both an NcML wrapper and an aggregation with a cdms3 document location.
+
 Before building:
 
 1. Copy `versions.env.example` to `versions.env`.
